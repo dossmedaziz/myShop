@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
    
 
    ngOnInit() :void{
-
+     this.connectedUser =  JSON.parse(localStorage.getItem('user'))
   }
 
 
@@ -58,7 +58,7 @@ export class NavbarComponent implements OnInit {
 
 
 
- signIn() {
+ async signIn() {
   const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
   this.fireAuth.signInWithPopup(googleAuthProvider).then((res)=>{
     let userInfo = {
@@ -68,7 +68,7 @@ export class NavbarComponent implements OnInit {
       photoUrl : res.user.photoURL
     }
     localStorage.setItem('user',JSON.stringify(userInfo))
-    this.ngOnInit()
+     this.ngOnInit()
     this.tostr.success("welcome "+ this.connectedUser.displayName)
   })
   

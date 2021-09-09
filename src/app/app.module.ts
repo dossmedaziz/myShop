@@ -15,7 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
-import config from '../../config'
+import config from '../../config';
+import { LoadingComponent } from './components/loading/loading.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +25,7 @@ import config from '../../config'
     HomeComponent,
     FooterComponent,
     ShopComponent,
+    LoadingComponent,
     
   ],
   imports: [
