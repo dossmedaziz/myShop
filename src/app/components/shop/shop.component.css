@@ -57,6 +57,8 @@
     margin:  auto;
     height: 450px;
     cursor: pointer;
+    animation: flipInY; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s; /* don't forget to set a duration! */
 }
 .products .card:hover{
 

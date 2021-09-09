@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 declare const $: any;
-declare const AOS: any;
 
 @Component({
   selector: 'app-shop',
@@ -22,8 +21,6 @@ products
    }
  )
 this.filter('')
-
-AOS.init()
   }
   activeToolbar()
   {
