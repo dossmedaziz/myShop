@@ -56,19 +56,19 @@ this.filter('')
 
 
 
-  filter(cat){
+    filter(cat){
+
+      if( ($('.tool-bar').hasClass('active-toolbar') )){
+     this.activeToolbar()
+   } 
     this.products = ""
     this.productService.getAllproducts(cat).subscribe(
       products => {
         setTimeout(() => {
           
           this.products = products
-        }, 1000);
-     
-        
-        
+        }, 1000);   
       }
     )
-    
   }
 }
