@@ -1,0 +1,61 @@
+<nav class="navBar">
+    <h1 class="logo" [routerLink]="['/']">Doss</h1>
+    <ul class="links">
+        
+        <li class="link"><a ><i class="fas fa-shopping-cart"></i></a></li>
+        <li class="link" *ngIf="!connectedUser"><a >
+          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Join Us
+           </button>
+        </a></li>
+
+        
+        <li class="link" *ngIf="connectedUser"><a >
+            <div class="dropdown text-end">
+                <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src="{{connectedUser.photoUrl}}" alt="mdo" width="32" height="32" class="rounded-circle">
+                </a>
+                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                  <li><a class="dropdown-item" href="#">Profile</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" (click)="signOut()">Sign out</a></li>
+                </ul>
+              </div>
+        </a>
+      </li>
+    </ul>
+</nav>
+<div class="mobile-nav">
+    <ul class="links">
+        <li class="link" (click)="active()"><a  [routerLink]="['/']"><i class="fas fa-2x fa-home active-link"></i></a></li>
+        <li class="link" (click)="active()"><a [routerLink]="['/shop']" ><i class="fas fa-2x fa-shopping-bag"></i></a></li>
+        <li class="link" (click)="active()"><a ><i class="fas fa-2x fa-shopping-cart"></i></a></li>
+        <li class="link" (click)="active()"><a ><i class="fas fa-2x fa-user"></i></a></li>
+    </ul>
+</div>
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Join Us</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          
+          <div class="google-btn" (click)="signIn()" data-bs-dismiss="modal">
+              <div class="google-icon-wrapper">
+                <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+              </div>
+              <p class="btn-text"><b>Sign in with google</b></p>
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

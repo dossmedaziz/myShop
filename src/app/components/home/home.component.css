@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+.home-img{
+    width: 400px;
+    margin-top: 120px !important;
+}
+p,small{
+    font-family: 'Dancing Script', cursive;
+  
+}
+.col-md-7{
+    text-align: center;
+}
+.row{
+    align-items: center;
+}
+.col-md-5{
+padding: 0;
+text-align: center;
+}
+.col-md-5 p {
+   font-size: 35px;
+    width: 100%;
+    text-align: center;
+}
+
+.col-md-5 small{
+    align-items: center;
+    width: 100%;
+}
+
+.col-md-5 button{
+    border : 1px solid;
+    color: grey;
+    background-color: #fff;
+    padding: 10px !important;
+}
+
+.col-md-5 button:hover{
+    color: #fff;
+    background-color: rgb(245, 188, 188) ;
+
+
+}
+
+@media screen and (max-width :765px){
+    .home-img{
+        width: 300px;
+        margin: 30px  0!important;
+    }
+    .col-md-5{
+        margin:  20px 0 !important;
+    }
+    .col-md-5 .quote{
+        font-size: 25px;
+    }
+
+    .row{
+        margin: 0 0 20px 0 !important;
+    }
+}

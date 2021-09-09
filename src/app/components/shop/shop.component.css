@@ -1,0 +1,174 @@
+.content{
+    width: 100%;
+    text-align: center;
+}
+
+.tool-bar{
+     width: 80%;
+     margin: 50px auto   !important;
+}
+
+.tool-bar .links{
+    display: flex;
+    width: 100%;
+    margin: auto !important;
+    justify-content:space-between ;
+    padding: 10px 25px;
+    border-bottom:  1px solid silver;
+}
+
+.tool-bar .links .link {
+    list-style: none;
+    width: 20% ;
+    margin: 50px 0;
+    padding: 10px;
+
+}
+.tool-bar .links .link a{
+    text-decoration: none;
+    font-size: 25px;
+    width: 100% !important;
+    padding: 0px 20px;
+    text-transform: capitalize;
+    color :#000 ;
+    cursor: pointer;
+}
+.tool-bar .links .link a:hover{
+    color: red;
+  
+}
+
+.rule-container{
+    display: none;
+}
+
+
+.products{
+    width: 80%;
+    margin:0  auto;
+    height: 100% !important;
+
+}
+.products .col-sm-4{
+    margin-bottom: 30px;
+}
+.products .card{
+    width: 80%;
+    margin:  auto;
+    height: 450px;
+    cursor: pointer;
+}
+.products .card:hover{
+
+        box-shadow: 0 10px 50px rgb(0 0 0 / 0.2);
+        transition: all .3s ease-in;
+}
+
+
+.products .card .product-img{
+    height: 250px;
+}
+.products .card img{
+    width: 30%;
+     margin:  20px auto;
+}
+
+.products .card .title{
+    text-transform: capitalize;
+    font-size: 30px;
+    color: #000;
+    margin-top: 30px;
+    padding: 30px 0 ;
+}
+@media screen  and (max-width : 1000px){
+    .tool-bar{
+        width: 100%;
+        margin: 0 !important;
+        position: fixed;
+        top: -200px;
+        box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+        height: 250px;
+        text-align: center;
+        animation: swiftup 0.5s;
+        background-color: #ddd;
+       justify-content: left;
+       border-radius: 10px;
+       z-index: 1;
+    }
+
+    .tool-bar .links{
+        padding: 0;
+        float: left;
+        width: 70%;
+        border : none;
+    }
+
+    .tool-bar .links .link{
+        width: 100%;
+        float: left;
+        margin :0  !important;
+        list-style: none;
+        
+    }
+    .tool-bar .links .link a{
+        font-size: 15px;
+    }
+
+    .active-toolbar{
+        top: 0;
+        animation: swiftdown 0.5s;
+
+
+    }
+    .tool-bar .links{
+        display: grid;
+        grid-template-columns: auto auto ;
+        padding: 10px;
+        
+    }
+
+    .rule-container{
+        display: block;
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        bottom: 5px;
+        padding-top: 0px;
+    }
+
+    .rule-container .rule{
+        width: 10%;
+        height: 5px;
+        background-color: silver;
+        margin:  auto;
+        border-radius: 8px;
+        cursor: pointer;
+
+      
+    }
+
+
+    .products .card{
+        width: 100%;
+    }
+}
+
+
+@keyframes swiftup {
+    from{
+        top: 0;
+    }
+    to{
+          top: -200px;
+    }
+}
+
+
+@keyframes swiftdown {
+    from{
+        top: -200px;
+    }
+    to{
+          top: 0;
+    }
+}

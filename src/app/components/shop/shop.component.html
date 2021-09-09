@@ -1,0 +1,36 @@
+<div class="content">
+    
+        <div class= "tool-bar">
+                 <ul class="links" *ngIf="categories">
+                     <li class="link" ><a (click)="filter('')">All</a></li>
+                     <li class="link" *ngFor="let cat of categories" ><a (click)="filter(cat)">{{reformName(cat)}}</a></li>
+    
+                 </ul>
+                 <div class="rule-container">
+
+                     <div class="rule" (click)="activeToolbar()"></div>
+                 </div>
+        </div>
+
+       <div class="products" *ngIf="products">
+        <div class="row">
+            <div class="col-sm-4"*ngFor=" let p of products">
+                <div class="card" >
+                    <div class="product-img">
+
+                        <img src="{{p.image}}" alt="">
+                    </div>
+
+                     <h3 class="title">{{p.price | currency:'USD'}}</h3>
+                </div>
+            </div>
+
+        
+        </div>
+
+       </div>
+
+       <div class="loading" *ngIf="!products">
+Loading....
+       </div>
+</div>
