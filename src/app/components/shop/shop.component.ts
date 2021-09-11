@@ -10,6 +10,7 @@ declare const $: any;
 export class ShopComponent implements OnInit {
 categories
 products
+selectedProduct
   constructor(private productService : ProductService) { }
 
   ngOnInit(): void {
@@ -70,5 +71,12 @@ this.filter('')
         }, 1000);   
       }
     )
+  }
+
+
+  select(p)
+  {
+   this.selectedProduct = p 
+    
   }
 }

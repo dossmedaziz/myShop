@@ -16,7 +16,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import config from '../../config';
-import { LoadingComponent } from './components/loading/loading.component'
+import { LoadingComponent } from './components/loading/loading.component';
+import { TopComponent } from './components/top/top.component';
+import { MoreInfoComponent } from './components/more-info/more-info.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +28,8 @@ import { LoadingComponent } from './components/loading/loading.component'
     FooterComponent,
     ShopComponent,
     LoadingComponent,
+    TopComponent,
+    MoreInfoComponent,
     
   ],
   imports: [
