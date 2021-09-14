@@ -88,7 +88,7 @@
      top: 0;
      animation: but 1s;
      height: 100%;
-     z-index: 9999;
+     z-index: 999;
  }
 
  .button-space{
