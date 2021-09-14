@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit,Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-more-info',
@@ -7,10 +8,10 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MoreInfoComponent implements OnInit {
   @Input() selectedProduct
-  constructor() { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data) { }
 
   ngOnInit(): void {
-    console.log(this.selectedProduct);
+    console.log(this.data.selectedProduct);
     
   }
 

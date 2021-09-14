@@ -19,6 +19,11 @@ import config from '../../config';
 import { LoadingComponent } from './components/loading/loading.component';
 import { TopComponent } from './components/top/top.component';
 import { MoreInfoComponent } from './components/more-info/more-info.component'
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatIconModule} from '@angular/material/icon';
+import {MatBadgeModule} from '@angular/material/badge';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +46,11 @@ import { MoreInfoComponent } from './components/more-info/more-info.component'
     AngularFireStorageModule ,// storage
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

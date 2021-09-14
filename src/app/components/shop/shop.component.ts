@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import {MatDialog} from '@angular/material/dialog';
+import { MoreInfoComponent } from '../more-info/more-info.component' ;
 declare const $: any;
 
 @Component({
@@ -11,7 +13,7 @@ export class ShopComponent implements OnInit {
 categories
 products
 selectedProduct
-  constructor(private productService : ProductService) { }
+  constructor(private productService : ProductService,public dialog: MatDialog) { }
 
   ngOnInit(): void {
  this.productService.getCategories().subscribe(
@@ -74,9 +76,19 @@ this.filter('')
   }
 
 
-  select(p)
-  {
+
+  openDialog(p) {
    this.selectedProduct = p 
-    
+
+    const dialogRef = this.dialog.open(MoreInfoComponent,{
+      data :{
+        selectedProduct :this.selectedProduct
+      }
+    });
+
+      dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 }
+

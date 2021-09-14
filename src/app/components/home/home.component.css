@@ -5,10 +5,24 @@
     animation: backInLeft; 
     animation-duration: 2s;
 }
-p,small{
+span{
     font-family: 'Dancing Script', cursive;
+    font-size: 35px;
     animation: backInUp; 
     animation-duration: 2s;
+    padding: 50px 0;
+    height: 250px;
+}
+small{
+    margin: 50px !important;
+    margin-top: 250px;
+    font-family: 'Dancing Script', cursive;
+    font-size: 25px;
+    width: fit-content;
+}
+.foot {
+        margin: 50px;
+
 }
 .col-md-7{
     text-align: center;
