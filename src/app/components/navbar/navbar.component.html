@@ -2,9 +2,9 @@
     <h1 class="logo" [routerLink]="['/']">Doss</h1>
     <ul class="links">
         
-        <li class="link"><a ><mat-icon matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon></a></li>
+        <li class="link"><a ><mat-icon [matBadge]="NumbrCart" matBadgeColor="warn">shopping_cart</mat-icon></a></li>
         <li class="link" *ngIf="!connectedUser"><a >
-          <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Join Us
            </button>
         </a></li>
@@ -27,10 +27,11 @@
 </nav>
 <div class="mobile-nav">
     <ul class="links">
-        <li class="link" (click)="active()"><a  [routerLink]="['/']"><i class="fas fa-2x fa-home active-link"></i></a></li>
-        <li class="link" (click)="active()"><a [routerLink]="['/shop']" ><i class="fas fa-2x fa-shopping-bag"></i></a></li>
-        <li class="link" (click)="active()"><a ><i class="fas fa-2x fa-shopping-cart"></i></a></li>
-        <li class="link" (click)="active()"><a ><i class="fas fa-2x fa-user"></i></a></li>
+        <li class="link" (click)="active()"><a  [routerLink]="['/']"><mat-icon class="icon icon-home">home</mat-icon></a></li>
+        <li class="link" (click)="active()"><a [routerLink]="['/shop']" ><mat-icon class="icon icon-bag" >shopping_bag</mat-icon></a></li>
+        <li class="link" (click)="active()" *ngIf="connectedUser"><a ><mat-icon class="icon icon-cart" [matBadge]="NumbrCart" matBadgeColor="warn">shopping_cart</mat-icon></a></li>
+        <li class="link" (click)="active()"*ngIf="connectedUser"><a ><mat-icon class="icon icon-user">account_circle</mat-icon></a></li>
+        <li class="link" (click)="active()"*ngIf="!connectedUser" (click)="activeLogin()"><a ><mat-icon class="icon icon-user">login</mat-icon></a></li>
     </ul>
 </div>
 
@@ -58,4 +59,20 @@
       </div>
     </div>
   </div>
+</div>
+
+
+<div class="mobile-login ">
+   <div class="rule-container">
+
+    <div class="rule" (click)="activeLogin()"></div>
+</div>
+
+  
+<div class="google-btn" (click)="signIn()">
+  <div class="google-icon-wrapper">
+    <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+  </div>
+  <p class="btn-text"><b>Sign in with google</b></p>
+</div>
 </div>

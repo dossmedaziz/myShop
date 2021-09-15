@@ -11,6 +11,7 @@ declare const $: any;
 })
 export class NavbarComponent implements OnInit {
   connectedUser 
+  NumbrCart = 0
   constructor(private route : Router ,
               private  fireAuth : AngularFireAuth,
               private tostr : ToastrService, 
@@ -37,12 +38,12 @@ export class NavbarComponent implements OnInit {
         // Hide progress spinner or progress bar         
        if(event.url == "/")
        {
-              $( ".fas" ).removeClass( "active-link" );
-              $(".fa-home").addClass( "active-link" );
+              $( ".icon" ).removeClass( "active-link" );
+              $(".icon-home").addClass( "active-link" );
               
        }else if( event.url == "/shop"){  
-         $( ".fas" ).removeClass( "active-link" );
-         $(".fa-shopping-bag").addClass( "active-link" );
+         $( ".icon" ).removeClass( "active-link" );
+         $(".icon-bag").addClass( "active-link" );
           }
     }
 
@@ -71,7 +72,7 @@ export class NavbarComponent implements OnInit {
      this.ngOnInit()
     this.tostr.success("welcome "+ this.connectedUser.displayName)
   })
-  
+  this.activeLogin()
 }
 
 signOut()
@@ -80,5 +81,16 @@ signOut()
   this.tostr.success('Successfully disconnected!')
   this.ngOnInit()
 }
- 
+activeLogin()
+{
+  if($('.mobile-login').hasClass('active-mobile-login') )
+  {
+    $( ".mobile-login" ).removeClass( "active-mobile-login" )
+
+
+  }else{
+  $( ".mobile-login" ).addClass( "active-mobile-login" );
+
+  }
+}
 }

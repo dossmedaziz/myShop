@@ -1,7 +1,7 @@
 section {
     display: table;
   }
-  
+
   .example-label {
     display: table-cell;
     font-size: 14px;
@@ -30,3 +30,25 @@ section {
     width: 120px;
   }
   
+  .img img{
+    width: 150px;
+    margin: 100px  ;
+  }
+  .description{
+    /* background-color: blue; */
+  }
+
+
+  @media  screen and (max-width : 1000px) {
+    .img img{
+      margin: 0;
+    }
+    .title{
+      font-size: 15px;
+     margin-top: 0 !important;
+    }
+    mat-dialog-actions{
+      margin-bottom: 24px;
+    }
+    
+  }
