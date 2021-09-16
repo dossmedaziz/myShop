@@ -13,7 +13,9 @@ export class ShopComponent implements OnInit {
 categories
 products
 selectedProduct
-  constructor(private productService : ProductService,public dialog: MatDialog) { }
+  constructor(private productService : ProductService,
+              public dialog: MatDialog,
+             ) { }
 
   ngOnInit(): void {
  this.productService.getCategories().subscribe(
@@ -90,5 +92,7 @@ this.filter('')
       console.log(`Dialog result: ${result}`);
     });
   }
+
+
 }
 

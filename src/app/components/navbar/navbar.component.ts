@@ -3,6 +3,8 @@ import {  Router,Event, NavigationStart, NavigationEnd, NavigationError } from '
 import { AngularFireAuth } from "@angular/fire/auth";
 import firebase from 'firebase/app';
 import { ToastrService  } from 'ngx-toastr';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { exit } from 'process';
 declare const $: any;
 @Component({
   selector: 'app-navbar',
@@ -12,9 +14,12 @@ declare const $: any;
 export class NavbarComponent implements OnInit {
   connectedUser 
   NumbrCart = 0
+  products = []
+   
   constructor(private route : Router ,
               private  fireAuth : AngularFireAuth,
               private tostr : ToastrService, 
+              private fb : AngularFirestore
               ) {
  this.active()
 }
@@ -22,6 +27,9 @@ export class NavbarComponent implements OnInit {
 
    ngOnInit() :void{
      this.connectedUser =  JSON.parse(localStorage.getItem('user'))
+  
+   this.getRealchanges()
+
   }
 
 
@@ -66,7 +74,7 @@ export class NavbarComponent implements OnInit {
       uid : res.user.uid,
       email : res.user.email,
       displayName : res.user.displayName,
-      photoUrl : res.user.photoURL
+      photoUrl : res.user.photoURL,
     }
     localStorage.setItem('user',JSON.stringify(userInfo))
      this.ngOnInit()
@@ -93,4 +101,33 @@ activeLogin()
 
   }
 }
+
+
+async getCartProduct()
+{
+  let user_id = (JSON.parse(localStorage.getItem("user"))) ? (JSON.parse(localStorage.getItem("user"))).uid : null
+ await this.fb.firestore.collection("carts").where("user_id","==",user_id).get().then(
+      (products)=>{
+        this.products = []
+       products.forEach(p=>{
+         this.products.push(p.data())
+       })
+        
+      }
+  )
+  
+  this.NumbrCart = this.products.length
+  
+  
+}
+
+getRealchanges(){
+  this.fb.collection("carts").valueChanges().subscribe(
+    data =>{
+      this.getCartProduct()
+    }
+  )
+  
+}
+
 }
